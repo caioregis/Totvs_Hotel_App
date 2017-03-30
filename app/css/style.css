@@ -1,0 +1,204 @@
+html, body {
+    height: 100%;
+}
+
+.fontColorMain {
+	color: #0c9abe;
+}
+
+.container-fluid {
+	min-height: 100%;
+    height: 100%;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.columns, .column {
+    height: 100%;
+}
+
+.sidebar {
+	padding: 0;
+  	background: #2c373a;
+}
+.content-area {
+	height: 80%;
+    overflow:auto;
+    /*padding-bottom: 80px;
+    margin-bottom: -100px;*/
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.content-inner {
+	padding: 15px;
+
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.nav-stacked > li > a {
+	display: inline-block;
+	width: 100%;
+	padding-left: 30px;
+	color: #0e94b6;
+	font-weight: bold;
+  	border-bottom: 1px solid #ddd;
+}
+.nav-stacked > .home {
+	color: #0e94b6;
+}
+.nav-stacked > .home a > i{
+	padding-right: 5px;
+	margin-left: -25px;
+	font-size: 1.5em;
+}
+.sidebar-brand > h1.brand {
+	font-weight: bold;
+	color: #aaa;
+	font-size: 1.5em;
+}
+
+
+
+@media (max-width: 768px) {
+  ./*main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }*/
+}
+
+
+.about-social {
+	background: #0c9abe;
+	padding: 8px 0;
+	color: #fff;
+}
+
+.about-social > .about {
+	line-height: 20px;
+	text-align: right;
+}
+.about-social > .social {
+	text-align: center;
+}
+
+.userlogged, .sitemap {
+	background: #fff;
+	padding: 5px 0;
+	color: #333;
+	border-bottom: 1px solid #ddd; 
+	vertical-align: middle;
+}
+.userlogged > div {
+	line-height: 35px;
+}
+.userlogged > div > li {
+	display: inline-block;
+	padding: 0 5px;
+}
+.userlogged > div > li img.brasil {
+	width: 28px;
+	border-radius: 20px;
+	margin-top: -8px;
+}
+.sitemap {
+	font-size: 12px;
+	border: 0;
+}
+.sitemap > div {
+	line-height: 20px;
+}
+.sitemap > .staryellow {
+	color: yellow;
+}
+.sitemap > .starblue {
+	color: blue;
+}
+.fa-2 {
+	font-size: 1.2em !important;
+}
+
+.innermenu {
+	height: 100%;
+	padding: 0;
+	background: #f3fafc;
+	text-align: center;
+	border-right: 1px solid #ddd;
+}
+.innermenu > ul > li {
+	border-bottom: 1px solid #ddd;
+}
+.innermenu > ul > li > a {
+	font-size: .9em;
+	text-align: left;
+	display: block;
+	color: #0c9abe;
+	font-weight: bold;
+	background-color: transparent; 
+}
+.innermenu > ul > li > a:hover, 
+.innermenu > ul > li > a.active {
+	color: #fff;
+	background-color: #0c9abe;
+}
+.innermenu > ul > li > img.imgHotel {
+	margin: 10px auto;
+	border-radius: 500px;
+}
+
+
+.panel-group .panel {
+	border-radius: 1px;
+}
+.panel-default > .panel-heading {
+	font-weight: bold;
+	border-bottom: 1px solid #ddd;
+	background-color: #fff;
+}
+
+form label {
+	color: #999;
+}
+form input {
+	color: #999;
+}
+
+
+.footer > p.copyright {
+	padding-top: 5px;
+	color: #fff;
+}
+.footer {
+	width:100%;
+   	position:fixed;
+   	left:0px;
+   	bottom:0px;
+   	height:30px;
+	text-align: center;
+   	background:#0c9abe;
+}
+
+/* IE 6 */
+* html .footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #0c9abe;
+	margin-bottom:0;
+}
+.btn-hotel {
+	font-weight: bold;
+    color: #0c9abe;
+    background-color: #fff;
+    border-color: #0c9abe;
+    margin-bottom: 10px;
+},
+.btn-hotel:hover {
+	background-color: #333;
+}

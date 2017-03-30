@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hotelSettings">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Totvs APP</title>
+	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="icon" href="../../favicon.ico">
+	<script src="https://use.fontawesome.com/c92632c81a.js"></script>
+</head>
+<body ng-cloak>
+	<div class="container-fluid wrapper">
+		<div class="row columns">
+			<div class="col-sm-3 col-md-2 column sidebar">
+				<ul class="nav nav-stacked">
+					<li class="sidebar-brand">
+						<h1 class="brand"><i class="fa fa-bandcamp fa-2" aria-hidden="true"></i>TOTVS</h1>
+               		</li>
+					<li class="home"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+					<li><a href="#">Configurações</a></li>
+					<li><a href="#">Consultas</a></li>
+					<li><a href="#">Faturamento</a></li>
+					<li><a href="">Governança</a></li>
+					<li><a href="">Hospedagem</a></li>
+					<li><a href="">Recepção</a></li>
+					<li><a href="">Relatórios</a></li>
+					<li><a href="">Reservas</a></li>
+					<li><a href="">RM</a></li>
+					<li><a href="">Operação de Caixa</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-md-10 column">
+				<div class="row about-social">
+					<div class="col-md-10 about">Sobre a TOTVS | Atendimento: 0800 0000 0000</div>
+					<div class="col-md-2 social">
+						<i class="fa fa-facebook-official fa-2" aria-hidden="true"></i>
+						<i class="fa fa-google-plus-square fa-2" aria-hidden="true"></i>
+						<i class="fa fa-linkedin-square fa-2" aria-hidden="true"></i>
+						<i class="fa fa-twitter-square fa-2" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="row userlogged">
+					<div class="col-md-3">
+						<i class="fa fa-user-circle-o fa-2" aria-hidden="true"></i>
+						<strong>Olá Ezio Silva - Administrador</strong>
+					</div>
+					<div class="col-md-3">
+						<select class="form-control">
+							<option default>Hotel Prodigy Beach Resort...</option>
+						</select>
+					</div>
+					<div class="col-md-6 text-right">
+						<li><i class="fa fa-search fa-2" aria-hidden="true"></i></li>
+						<li><i class="fa fa-commenting-o fa-2" aria-hidden="true"></i></li>
+						<li><img src="/img/brasil.png" class="brasil"></li>
+						<li><i class="fa fa-sign-out fa-2" aria-hidden="true"></i></li>
+					</div>
+				</div>
+				<div class="row content-area">
+					<ng-view></ng-view>
+				</div>
+			</div>
+		</div>
+		<footer class="row footer">
+			<p class="col-md-12 copyright">Copyright TOTVS 2017</p>
+		</footer>
+	</div>
+	
+	<script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/controllers/ManagementController.js"></script>
+	<script type="text/javascript" src="/js/services/ManagementService.js"></script>
+	<script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<div class="content-inner">
+	<div class="row sitemap">
+		<div class="col-md-10">
+			<span>Você está em: Home</span> /
+			<span>Configurações</span> /
+			<span>Gestão do Hotel</span>
+			<a href="#"><i class="fa fa-star starblue" aria-hidden="true"></i><strong>adicionar aos favoritos</strong></a>
+		</div>
+		<div class="col-md-2 text-right">
+			<button type="button" class="btn btn-hotel">
+				<i class="fa fa-chevron-right" aria-hidden="true"></i>
+				<i class="fa fa-star staryellow" aria-hidden="true"></i>Favoritos
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="fontColorMain">Gestão do Hotel</h3>
+			<hr />
+		</div>
+	</div>
+	<div class="row columns " ng-controller="ManagementController as mgmt">
+		<div class="col-md-2 column innermenu">
+			<ul class="nav">
+				<li><img src="/img/ilha-virgem-caribe.jpg" class="imgHotel"></li>
+				<li><a class="active" href="">Dados do Contrato</a></li>
+				<li><a href="">Configurações de Quarto</a></li>
+				<li><a href="">Serviços</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10 column content-inner">
+			<div class="row">
+				<div class="col-md-6">
+					<button type="button" class="btn btn-hotel">Cadastrar novo hotel</button>
+				</div>
+				<div class="col-md-6">
+					<p ng-show="mgmt.success" class="bg-success">{{mgmt.success}}</p>
+					<p ng-show="mgmt.error" class="bg-danger">{{mgmt.error}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form novalidate name="newHotelForm" ng-submit="mgmt.save(mgmt.hotel, newHotelForm)">
+						<div class="panel-group">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									Dados do Hotel
+									<i class="fa fa-pencil fontColorMain pull-right" aria-hidden="true"></i>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.nome.$invalid && !newHotelForm.nome.$pristine }">
+												<label for="nome">Nome do Hotel</label>
+												<input name="nome" id="nome"
+												type="text"
+												class="form-control"
+												placeholder="Digite o nome"
+												required
+												ng-minlength="3"
+												ng-model="mgmt.hotel.dados.nome">
+												<p ng-show="newHotelForm.nome.$error.required" class="help-block">
+													Nome deve ser preenchido
+												</p>
+												<p ng-show="newHotelForm.nome.$error.minlength" class="help-block">
+													Nome deve conter mais de 3 caracteres
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.rede.$invalid && !newHotelForm.rede.$pristine }">
+												<label for="rede">Rede</label>
+												<input id="rede" name="rede" 
+												type="text"
+												class="form-control"
+												placeholder="Digite a rede"
+												required
+												ng-model="mgmt.hotel.dados.rede">
+												<p ng-show="newHotelForm.rede.$error.required && newHotelForm.rede.$dirty" class="help-block">
+													Rede não pode ficar em branco
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.bandeira.$invalid && !newHotelForm.bandeira.$pristine }">
+												<label for="bandeira">Bandeira</label>
+												<input id="bandeira" name="bandeira" 
+												type="text"
+												class="form-control"
+												placeholder="Digite a bandeira"
+												required
+												ng-model="mgmt.hotel.dados.bandeira">
+												<p ng-show="newHotelForm.bandeira.$error.required && newHotelForm.bandeira.$dirty" class="help-block">
+													Bandeira não pode ficar em branco
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.fantasia.$invalid && !newHotelForm.fantasia.$pristine }">
+												<label for="fantasia">Nome Fantasia</label>
+												<input id="fantasia" name="fantasia" 
+												type="text"
+												class="form-control"
+												placeholder="Digite o nome fantasia"
+												required
+												ng-model="mgmt.hotel.dados.fantasia">
+												<p ng-show="newHotelForm.fantasia.$error.required && newHotelForm.fantasia.$error.dirty" class="help-block">
+													Nome Fantasia não pode ficar em branco
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.razaosocial.$invalid && !newHotelForm.razaosocial.$pristine }">
+												<label for="razaosocial">Razão Social</label>
+												<input id="razaosocial" name="razaosocial"
+												type="text"
+												class="form-control"
+												placeholder="Digite a razão social"
+												required
+												ng-model="mgmt.hotel.dados.razaosocial">
+												<p ng-show="newHotelForm.razaosocial.$error.required && newHotelForm.razaosocial.$error.dirty" class="help-block">
+													Razão Social não pode ficar em branco
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.totalUHs.$invalid && !newHotelForm.totalUHs.$pristine }">
+												<label for="totalUHs">Total de UHs</label>
+												<input  id="totalUHs" name="totalUHs"
+												type="text"
+												class="form-control"
+												placeholder="Digite o total de UHs"
+												required
+												ng-pattern="/^\d+$/"
+												ng-model="mgmt.hotel.dados.totalUHs">
+												<p ng-show="newHotelForm.totalUHs.$error.required && newHotelForm.totalUHs.$error.dirty" class="help-block">
+													Total de UHs não pode ficar em branco
+												</p>
+												<p ng-show="newHotelForm.totalUHs.$error.pattern" class="help-block">
+													Deve ser somente números
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.telefone.$invalid && !newHotelForm.telefone.$pristine }">
+												<label for="telefone">Telefone</label>
+												<input id="telefone" name="telefone"
+												type="text"
+												class="form-control"
+												required
+												placeholder="+55 (99) 9999-9999"
+												ng-pattern="/^[+1-9 ]{3,4}\([1-9]{2}\)[ 0-9]{4,6}-[0-9]{4}$/"
+												ng-model="mgmt.hotel.dados.telefone">
+												<p ng-show="newHotelForm.telefone.$error.required && newHotelForm.telefone.$error.dirty" class="help-block">
+													Telefone não pode ficar em branco
+												</p>
+												<p ng-show="newHotelForm.telefone.$error.pattern" class="help-block">
+													Formato +99 (99) 9999-9999 obrigatório
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.homePage.$invalid && !newHotelForm.homePage.$pristine }">
+												<label for="homePage">Home Page</label>
+												<input id="homePage" name="homePage"
+												type="url" 
+												class="form-control"
+												required
+												placeholder="https://www.exemplo.com.br"
+												ng-pattern="/(https?:\/\/)(www)?[A-Za-z0-9.\-@_~]+\.[A-Za-z]{2,}(:[0-9]{2,5})?(\/[A-Za-z0-9\/_\-.~?&=]*)*/"
+												ng-model="mgmt.hotel.dados.homePage">
+												<p ng-show="newHotelForm.homePage.$error.required && newHotelForm.homePage.$error.dirty" class="help-block">
+													HomePage não pode ficar em branco
+												</p>
+												<p ng-show="newHotelForm.homePage.$error.pattern" class="help-block">
+													Formato https://www.exemplo.com.br obrigatório
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									Endereço
+									<i class="fa fa-pencil fontColorMain pull-right" aria-hidden="true"></i>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.cep.$invalid && !newHotelForm.cep.$pristine, 'has-success': newHotelForm.cep.$valid && !newHotelForm.cep.$pristine }">
+												<label for="cep">CEP</label>
+												<input id="cep" name="cep" 
+												type="text"
+												class="form-control"
+												placeholder="99999-99"
+												required
+												ng-pattern="/^(\d{5}-\d{3})$/"
+												ng-model="mgmt.hotel.endereco.cep">
+												<p ng-show="newHotelForm.cep.$error.required && newHotelForm.cep.$error.dirty" class="help-block">
+													CEP deve ser preenchido
+												</p>
+												<p ng-show="newHotelForm.cep.$error.pattern" class="help-block">
+													Formato deve ser 99999-999
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.logradouro.$invalid && !newHotelForm.logradouro.$pristine }">
+												<label for="logradouro">Logradouro</label>
+												<input id="logradouro" name="logradouro"
+												type="text"
+												class="form-control"
+												placeholder="Digite o logradouro"
+												required
+												ng-model="mgmt.hotel.endereco.logradouro" >
+												<p ng-show="newHotelForm.logradouro.$error.required && newHotelForm.logradouro.$error.dirty" class="help-block">
+													Logradouro deve ser preenchido
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.pais.$invalid && !newHotelForm.pais.$pristine }">
+												<label for="pais">País</label>
+												<input id="pais" name="pais"
+												type="text"
+												class="form-control"
+												placeholder="Digite o pais"
+												required
+												ng-model="mgmt.hotel.endereco.pais">
+												<p ng-show="newHotelForm.pais.$error.required && newHotelForm.pais.$error.dirty" class="help-block">
+													País deve ser preenchido
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.numero.$invalid && !newHotelForm.numero.$pristine }">
+												<label for="numero">Número</label>
+												<input id="numero" name="numero"
+												type="text"
+												class="form-control"
+												placeholder="Digite o número"
+												required
+												ng-pattern="/^\d+$/"
+												ng-model="mgmt.hotel.endereco.numero">
+												<p ng-show="newHotelForm.numero.$error.required && newHotelForm.numero.$error.dirty" class="help-block">
+													Número deve ser preenchido
+												</p>
+												<p ng-show="newHotelForm.numero.$error.pattern" class="help-block">
+													Deve ser somente números
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.localizacao.$invalid && !newHotelForm.localizacao.$pristine }">
+												<label for="localizacao">Localização</label>
+												<input id="localizacao" name="localizacao"
+												type="text"
+												class="form-control"
+												placeholder="Digite a localização"
+												required
+												ng-model="mgmt.hotel.endereco.localizacao" >
+												<p ng-show="newHotelForm.localizacao.$error.required && newHotelForm.localizacao.$error.dirty" class="help-block">
+													Localização deve ser preenchida
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									Documentos
+									<i class="fa fa-pencil fontColorMain pull-right" aria-hidden="true"></i>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.cnpj.$invalid && !newHotelForm.cnpj.$pristine }">
+												<label for="cnpj">CNPJ</label>
+												<input id="cnpj" name="cnpj"
+												type="text"
+												class="form-control"
+												placeholder="Digite o CNPJ"
+												required
+												ng-pattern="/^([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})$/"
+												ng-model="mgmt.hotel.documentos.cnpj">
+												<p ng-show="newHotelForm.cnpj.$error.required && newHotelForm.cnpj.$error.dirty" class="help-block">
+													CNPJ deve ser preenchido
+												</p>
+												<p ng-show="newHotelForm.cnpj.$error.pattern" class="help-block">
+													Formato deve ser 99.999.999/9999-99
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.inscricaoEstadual.$invalid && !newHotelForm.inscricaoEstadual.$pristine }">
+												<label for="inscricaoEstadual">Inscrição Estadual</label>
+												<input id="inscricaoEstadual" name="inscricaoEstadual"
+												type="text"
+												class="form-control"
+												placeholder="Digite o inscrição estadual"
+												required 
+												ng-pattern="/^([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3})$/"
+												ng-model="mgmt.hotel.documentos.inscricaoEstadual">
+												<p ng-show="newHotelForm.inscricaoEstadual.$error.required && newHotelForm.inscricaoEstadual.$error.dirty" class="help-block">
+													Insc. Estadual deve ser preenchida
+												</p>
+												<p ng-show="newHotelForm.inscricaoEstadual.$error.pattern" class="help-block">
+													Formato deve ser 999.999.999
+												</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.inscricaoMunicipal.$invalid && !newHotelForm.inscricaoMunicipal.$pristine }">
+												<label for="inscricaoMunicipal">Inscrição Municipal</label>
+												<input id="inscricaoMunicipal" name="inscricaoMunicipal" 
+												type="text"
+												class="form-control"
+												placeholder="Digite o inscrição municipal"
+												required
+												ng-pattern="/^\d+$/"
+												ng-model="mgmt.hotel.documentos.inscricaoMunicipal">
+												<p ng-show="newHotelForm.inscricaoMunicipal.$error.required && newHotelForm.inscricaoMunicipal.$error.dirty" class="help-block">
+													Insc. Municipal deve ser preenchida
+												</p>
+												<p ng-show="newHotelForm.inscricaoMunicipal.$error.pattern" class="help-block">
+													Deve ser somente números
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group" ng-class="{'has-error':newHotelForm.cnae.$invalid && !newHotelForm.cnae.$pristine }">
+												<label for="cnae">CNAE</label>
+												<input id="cnae" name="cnae"
+												type="text"
+												class="form-control"
+												placeholder="Digite o CNAE"
+												required
+												ng-pattern="/^\d+$/"
+												ng-model="mgmt.hotel.documentos.cnae">
+												<p ng-show="newHotelForm.cnae.$error.required && newHotelForm.cnae.$error.dirty" class="help-block">
+													CNAE deve ser preenchido
+												</p>
+												<p ng-show="newHotelForm.cnae.$error.pattern" class="help-block">
+													Deve ser somente números
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<button type="submit" ng-disabled="newHotelForm.$invalid" class="btn btn-primary">
+							Cadastrar
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
