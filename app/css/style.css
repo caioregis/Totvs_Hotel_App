@@ -25,8 +25,6 @@ html, body {
 .content-area {
 	height: 80%;
     overflow:auto;
-    /*padding-bottom: 80px;
-    margin-bottom: -100px;*/
 
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -45,7 +43,7 @@ html, body {
 	padding-left: 30px;
 	color: #0e94b6;
 	font-weight: bold;
-  	border-bottom: 1px solid #ddd;
+  	border-bottom: 1px solid #3b4a4d;
 }
 .nav-stacked > .home {
 	color: #0e94b6;
@@ -61,22 +59,11 @@ html, body {
 	font-size: 1.5em;
 }
 
-
-
-@media (max-width: 768px) {
-  ./*main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }*/
-}
-
-
 .about-social {
 	background: #0c9abe;
 	padding: 8px 0;
 	color: #fff;
 }
-
 .about-social > .about {
 	line-height: 20px;
 	text-align: right;
@@ -149,7 +136,6 @@ html, body {
 	border-radius: 500px;
 }
 
-
 .panel-group .panel {
 	border-radius: 1px;
 }
@@ -165,7 +151,6 @@ form label {
 form input {
 	color: #999;
 }
-
 
 .footer > p.copyright {
 	padding-top: 5px;
@@ -201,4 +186,8 @@ hr {
 },
 .btn-hotel:hover {
 	background-color: #333;
+}
+
+@media (max-width: 768px) {
+  	/*Não implementei responsividade pois ia demandar um pouco mais de tempo.*/
 }

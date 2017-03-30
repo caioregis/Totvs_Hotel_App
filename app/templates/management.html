@@ -60,7 +60,7 @@
 												required
 												ng-minlength="3"
 												ng-model="mgmt.hotel.dados.nome">
-												<p ng-show="newHotelForm.nome.$error.required" class="help-block">
+												<p ng-show="newHotelForm.nome.$error.required && newHotelForm.nome.$dirty" class="help-block">
 													Nome deve ser preenchido
 												</p>
 												<p ng-show="newHotelForm.nome.$error.minlength" class="help-block">
